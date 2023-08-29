@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Ensure tooling is installed
-        run: apt-get install --yes curl jq
+        run: sudo apt-get install --yes curl jq
       - name: Fetch try-runtime latest version
         id: version
         run: |
