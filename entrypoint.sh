@@ -5,12 +5,10 @@ snap=$2
 runtime=$3
 checks=$4
 
-PATH=$PATH:/usr/local/cargo/bin/
-
 # if snap does not exists, take it
 if [ ! -f "$snap" ]; then
   echo "Snapshot does not exist, taking it now..."
-  try-runtime --runtime existing create-snapshot --uri $url $snap
+  /usr/local/cargo/bin/try-runtime --runtime existing create-snapshot --uri $url $snap
 fi
 
-try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks snap --path $snap
+/usr/local/cargo/bin/try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks snap --path $snap
