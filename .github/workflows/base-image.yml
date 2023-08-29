@@ -2,8 +2,10 @@ name: Build try-runtime base image
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 10 * * *' # everyday at 10am
+    inputs:
+      version:
+        description: 'Version to fetch and build'
+        required: true
 
 jobs:
   build:
@@ -12,20 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Ensure tooling is installed
-        run: sudo apt-get install --yes curl jq
-      - name: Fetch try-runtime latest version
-        id: version
-        run: |
-          VERSION=`curl https://api.github.com/repos/paritytech/try-runtime-cli/releases/latest | jq -r .tag_name`
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/nodlecode/try-runtime-cli
           tags: |
-            type=raw,value=${{ steps.version.outputs.VERSION }}
+            type=raw,value=${{ inputs.version }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to GHCR
@@ -41,4 +36,4 @@ jobs:
           file: './base/Dockerfile'
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: VERSION=${{ steps.version.outputs.VERSION }}
+          build-args: VERSION=${{ inputs.version }}
