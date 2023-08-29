@@ -9,5 +9,7 @@ RUN VERSION=`curl https://api.github.com/repos/paritytech/try-runtime-cli/releas
 	cargo install --git https://github.com/paritytech/try-runtime-cli --tag ${VERSION}
 
 COPY entrypoint.sh /entrypoint.sh
+RUN chown `id -u`:`id -g` /entrypoint.sh && \
+	chmod +x /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
