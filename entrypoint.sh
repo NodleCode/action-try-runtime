@@ -5,6 +5,8 @@ snap=$2
 runtime=$3
 checks=$4
 
+PATH=$PATH:/usr/local/cargo/bin/
+
 # if snap does not exists, take it
 if [ ! -f "$snap" ]; then
   echo "Snapshot does not exist, taking it now..."
