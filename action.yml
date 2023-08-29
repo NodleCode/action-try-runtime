@@ -1,5 +1,8 @@
 name: 'Try Runtime'
 description: 'Runs try-runtime on the specified chain and runtime'
+branding:
+  icon: 'check-circle'
+  color: 'green'
 inputs:
   url:
     description: 'URL of the node to take a snapshot from'
