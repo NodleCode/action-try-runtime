@@ -1,0 +1,23 @@
+name: 'Try Runtime'
+description: 'Runs try-runtime on the specified chain and runtime'
+inputs:
+  url:
+    description: 'URL of the node to take a snapshot from'
+    required: true
+  snap:
+    description: 'Path to a previsouly taken snapshot, if doesn't exists we will create it'
+    default: '/tmp/default.snap'
+  runtime:
+    description: 'Path to a try-runtime enabled runtime to test migrations for'
+    required: true
+  checks:
+    description: 'Checks to run'
+    default: 'all'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.snap }}
+    - ${{ inputs.runtime }}
+    - ${{ inputs.checks }}
