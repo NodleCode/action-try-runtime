@@ -28,8 +28,8 @@ Checks to run, default to `all`.
 ```yaml
 uses: NodleCode/action-try-runtime
 with:
-	url: 'https://rpc.nodleprotocol.io'
-	runtime: 'path/to/runtime.wasm'
+  url: 'https://rpc.nodleprotocol.io'
+  runtime: 'path/to/runtime.wasm'
 ```
 
 ## Wishlist
