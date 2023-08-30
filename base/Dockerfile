@@ -7,7 +7,7 @@ RUN apt-get update && \
 RUN rustup update stable && \
 	rustup target add wasm32-unknown-unknown && \
 	rustup target add wasm32-unknown-unknown --toolchain stable
-RUN cargo install --git https://github.com/paritytech/try-runtime-cli --tag ${VERSION}
+RUN cargo install --git https://github.com/paritytech/try-runtime-cli --tag ${VERSION} --locked
 
 
 FROM debian:bookworm-slim
