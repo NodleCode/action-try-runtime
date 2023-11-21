@@ -16,6 +16,10 @@ inputs:
   checks:
     description: 'Checks to run'
     default: 'all'
+  options:
+    description: 'try-runtime command line options'
+    default: ''
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -24,3 +28,4 @@ runs:
     - ${{ inputs.snap }}
     - ${{ inputs.runtime }}
     - ${{ inputs.checks }}
+    - ${{ inputs.options }}
