@@ -4,6 +4,7 @@ url=$1
 snap=$2
 runtime=$3
 checks=$4
+shift 4
 
 # if snap does not exists, take it
 if [ ! -f "$snap" ]; then
@@ -11,4 +12,4 @@ if [ ! -f "$snap" ]; then
   try-runtime --runtime existing create-snapshot --uri $url $snap
 fi
 
-try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks snap --path $snap
+try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks $* snap --path $snap
