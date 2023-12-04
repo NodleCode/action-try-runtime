@@ -9,9 +9,9 @@ on:
             - main
 
 jobs:
-    validate:
+    Check-if-version-in-GHCR-is-built:
         runs-on: ubuntu-latest
-    
         steps:
         - uses: actions/checkout@v4
+        - run: echo Check if docker image was built and uploaded correctly 
         - run: head -1 Dockerfile | sed 's/FROM \(.*\)/docker run \1 try-runtime -V/'|bash
