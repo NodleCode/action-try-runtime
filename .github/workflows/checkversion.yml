@@ -6,6 +6,7 @@ on:
         # to merge to master, too:
         branches:
             - master
+            - main
 
 jobs:
     validate:
