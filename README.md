@@ -52,6 +52,12 @@ with:
 
 ### Troubleshooting
 
+Verify online version
+
+```
+docker run  ghcr.io/nodlecode/try-runtime-cli:v0.5.1 try-runtime  -V
+```
+
 Execute the prebuilt docker image
 
 ```
