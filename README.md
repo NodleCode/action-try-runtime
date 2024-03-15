@@ -40,7 +40,7 @@ with:
 ### Use case with some more options
 ```yaml
 - name: Run try-runtime
-  uses: NodleCode/action-try-runtime@v0.5.1
+  uses: NodleCode/action-try-runtime@v0.6.1
   with:
     url: 'https://rpc.nodleprotocol.io'
     snap: snapshots/eden-snapshot-full
