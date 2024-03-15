@@ -11,7 +11,7 @@ inputs:
     description: 'Path to a previously taken snapshot, if does not exists we will create it'
     default: '/tmp/default.snap'
   runtime:
-    description: 'Path to a try-runtime enabled runtime to test migrations for'
+    description: 'Path to a try-runtime enabled runtime to test migrations for, Set to SKIP to skip test and only download snapshot'
     required: true
   checks:
     description: 'Checks to run'

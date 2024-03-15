@@ -12,4 +12,6 @@ if [ ! -f "$snap" ]; then
   try-runtime --runtime existing create-snapshot --uri $url $snap
 fi
 
-try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks $* snap --path $snap
+if [ -f "$runtime" ];then
+  try-runtime --runtime $runtime on-runtime-upgrade --checks=$checks $* snap --path $snap
+fi

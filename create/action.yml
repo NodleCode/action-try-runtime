@@ -1,0 +1,19 @@
+name: 'Try Runtime - create snapshot'
+description: 'Runs try-runtime to create a snapshot'
+branding:
+  icon: 'check-circle'
+  color: 'green'
+inputs:
+  url:
+    description: 'URL of the node to take a snapshot from'
+    required: true
+  snap:
+    description: 'Path to a previously taken snapshot, if does not exists we will create it'
+    default: '/tmp/default.snap'
+ 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.snap }}
