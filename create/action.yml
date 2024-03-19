@@ -16,7 +16,7 @@ inputs:
  
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: '../Dockerfile'
   args:
     - ${{ inputs.url }}
     - ${{ inputs.snap }}
